@@ -1,0 +1,12 @@
+*.db
+*.py[cod]
+.web
+__pycache__/
+assets/external/
+# Ignorar entornos virtuales comunes
+env/
+venv/
+
+# Ignorar archivos de configuración específicos de IDE
+.idea/
+*.iml

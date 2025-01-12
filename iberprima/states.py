@@ -52,3 +52,39 @@ class ProductState(rx.State):
             image="https://www.gastronomiavasca.net/uploads/image/file/5218/w700_Lecitina_de_soja_.jpg"
         ),
     ]
+
+
+
+class BenefitsState(rx.State):
+    benefits: list[dict] = [
+        {"title": "Mejora el sabor", "description": "Mejora el sabor de los alimentos", "image": "/media/benefits/sabor.jpg"},
+        {"title": "Reduce sodio", "description": "Reduce el contenido de sodio", "image": "/media/benefits/sodio.jpg"},
+        {"title": "Económico", "description": "Económicamente eficiente", "image": "/media/benefits/economico.jpg"},
+        {"title": "Durabilidad", "description": "Aumenta la durabilidad de los alimentos", "image": "/media/benefits/durabilidad.jpg"},
+        {"title": "Palatabilidad", "description": "Aumenta la palatabilidad de los alimentos", "image": "/media/benefits/palatibidad.jpg"},
+        {"title": "Sabor umami", "description": "Potencia el sabor umami", "image": "/media/benefits/umami.jpg"},
+        {"title": "Textura", "description": "Mejora la textura de los alimentos", "image": "/media/benefits/textura.jpg"},
+    ]
+    
+    current_index: int = 0
+    is_visible: bool = True  # Nuevo estado para controlar visibilidad
+
+    @property
+    def total_benefits(self) -> int:
+        return len(self.benefits)
+
+    @rx.event
+    def next_benefit(self):
+        self.set_visible(False)  # Ocultar antes de cambiar
+        self.current_index = (self.current_index + 1) % self.total_benefits
+        self.set_visible(True)   # Mostrar con nueva información
+
+    @rx.event
+    def prev_benefit(self):
+        self.set_visible(False)  # Ocultar antes de cambiar
+        self.current_index = (self.current_index - 1) % self.total_benefits
+        self.set_visible(True)   # Mostrar con nueva información
+
+    @rx.event
+    def set_visible(self, visible: bool):
+        self.is_visible = visible

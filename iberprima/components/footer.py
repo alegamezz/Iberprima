@@ -54,7 +54,7 @@ def footer():
                 width = "100%",
                 flex_direction=["column", "row"]
             ),
-
+            rx.divider(color_scheme="gray"),
             # Sección del copyright (no se modifica)
             rx.box(
                 rx.vstack(
@@ -72,15 +72,16 @@ def footer():
                     align="center",
                     width="100%",
                 ),
-                padding="1rem",
-                background="#1e1e1e",
+                padding_bottom="1rem",
+                background="#353838",
                 width="100%",
                 align_items="center",
                 justify_content="center",
             ),
+            width="100%",
         ),
         width="100%",
-        background="black",
+        background="#353838",
         color="white",
         align_items="center",
         justify_content="center",

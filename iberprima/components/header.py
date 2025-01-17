@@ -1,4 +1,43 @@
 import reflex as rx
+def header_link(content, href="#"):
+    return rx.link(
+        content,
+        href=href,
+        style= {
+            "color": "gray",
+            "a.rt-Link.css-u82ugq-Component:hover": {
+                "color": "#4a4a4a"  # darker gray
+            }
+        },
+        text_decoration="none", 
+        weight="regular",
+    )
+
+
+def mobile_menu():
+        return rx.menu.root(
+            rx.menu.trigger(
+                rx.icon_button(
+                    "menu",
+                    color="gray",
+                    box_shadow="0px 4px 6px rgba(0, 0, 0, 0.1)",
+                    _hover={
+                        "background": "#d3d3d3",  # Un gris claro en hexadecimal
+                        "cursor": "pointer",
+                        "transition": "background 0.2s ease",  # Transición suave
+                    },
+                    background="white",
+                    border_radius="10px",  # Mayor radio de borde
+                ),
+            ),
+            rx.menu.content(
+                rx.menu.item("Opción 1"),
+                rx.menu.item("Opción 2"), 
+                rx.menu.separator(),
+                rx.menu.item("Opción 3"),
+            ),
+        )
+
 
 def header():
     return rx.box(
@@ -12,22 +51,29 @@ def header():
             ),
             # Navigation menu
             rx.hstack(
-                rx.link("Sobre nosotros", href="/about", color="gray", _hover={"color": "purple"}),
-                rx.link("Contacto", href="/contact", color="gray", _hover={"color": "purple"}),
-                rx.link("Servicios", href="/services", color="gray", _hover={"color": "purple"}),  # Nuevo enlace
-                rx.link("Blog", href="/blog", color="gray", _hover={"color": "purple"}),          # Nuevo enlace
+                header_link("Inicio", href="/"),
+                header_link("Acerca de", href="/about"),
+                header_link("Contacto", href="/contact"),        # Nuevo enlace
                 spacing="3",  # Espaciado entre enlaces
                 align="center",
                 justify="end",
                 width="50%",  # Ajustar el ancho del contenedor para que no ocupe todo
             ),
+            # Mobile menu
+            mobile_menu(),
             # Search and icons section
             rx.hstack(
                 rx.color_mode.button(
                     aria_label="Switch theme",
                     color="gray",
                     box_shadow="0px 4px 6px rgba(0, 0, 0, 0.1)",
-                    _hover={"background": "gray", "cursor": "pointer"},
+                    _hover={
+                        "background": "#d3d3d3",  # Un gris claro en hexadecimal
+                        "cursor": "pointer",
+                        "transition": "background 0.2s ease",  # Transición suave
+                    },
+                    background="white",
+                    border_radius="10px",  # Mayor radio de borde
                 ),
                 spacing="2",  # Espaciado entre íconos si añades más
                 height="100%",

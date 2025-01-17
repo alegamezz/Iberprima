@@ -38,11 +38,11 @@ def footer():
                 rx.vstack(
                     rx.text("Condiciones", font_weight="bold", size="2"),
                     rx.link("Preguntas frecuentes", href="#", size="1", color="gray"),
-                    rx.link("Términos y condiciones", href="#", size="1", color="gray"),
+                    rx.link("Términos y condiciones", href="/terms_conditions", size="1", color="gray"),
                     rx.link("Transporte", href="#", size="1", color="gray"),
                     rx.link("Aviso legal", href="#", size="1", color="gray"),
                     rx.link("Política de privacidad", href="#", size="1", color="gray"),
-                    rx.link("Política de cookies", href="#", size="1", color="gray"),
+                    rx.link("Política de cookies", href="/cookies", size="1", color="gray"),
                     rx.link("Política de devoluciones", href="#", size="1", color="gray"),
                     align_items="flex-start",
                     width=["100%", "30%"],

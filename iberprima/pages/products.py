@@ -9,6 +9,7 @@ from iberprima.pages.about import about
 from iberprima.pages.applications import applications
 from iberprima.pages.benefits import benefits
 from iberprima.pages.certifications import certifications
+from iberprima.pages.location import location
 from iberprima.pages.msg import msg
 from iberprima.states import ProductState
 
@@ -38,6 +39,8 @@ def products():
                     applications(),
                     # Sección Certificaciones
                     certifications(),
+                    # sección localización
+                    location(),
 
                     spacing="4",
                     align_items="start",

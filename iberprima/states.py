@@ -53,6 +53,15 @@ class ProductState(rx.State):
         ),
     ]
 
+class MsgState(rx.State):
+   msg_data: list[dict] = [
+        {"year": "1908", "popularity": 10, "desc": "Descubrimiento del MSG"},
+        {"year": "1940", "popularity": 50, "desc": "Expansión comercial"}, 
+        {"year": "1970", "popularity": 90, "desc": "Máxima popularidad"},
+        {"year": "1990", "popularity": 50, "desc": "Controversias"},
+        {"year": "2000", "popularity": 70, "desc": "Estudios científicos"},
+        {"year": "2020", "popularity": 100, "desc": "Aceptación global"}
+    ]
 
 
 class BenefitsState(rx.State):

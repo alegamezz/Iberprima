@@ -2,7 +2,11 @@ import reflex as rx
 
 from iberprima.models import Product
 
-
+class HeaderState(rx.State):
+    current_path: str = "/"
+    
+    def set_current_path(self, path: str):
+        self.current_path = path
 
 class ProductState(rx.State):
     products_list: list[Product] = [
